@@ -3,8 +3,10 @@ import { SensorCard } from "@/components/SensorCard";
 import { SystemStatus } from "@/components/SystemStatus";
 import { DataChart } from "@/components/DataChart";
 import { HardwareInfo } from "@/components/HardwareInfo";
-import { Wind, Thermometer, Droplets, TestTube, TrendingUp, TrendingDown } from "lucide-react";
+import { Wind, Thermometer, Droplets, TestTube, TrendingUp, TrendingDown, Cpu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   // Sensor states based on actual hardware specs
@@ -91,12 +93,20 @@ const Index = () => {
               Real-time IoT sensor data simulation based on hardware specifications
             </p>
           </div>
-          <Badge
-            variant="outline"
-            className="border-primary/50 text-primary text-lg px-4 py-2"
-          >
-            ESP32 + Sensors
-          </Badge>
+          <div className="flex flex-col md:flex-row gap-3 items-end md:items-center">
+            <Link to="/circuit">
+              <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+                <Cpu className="h-4 w-4 mr-2" />
+                View Circuit
+              </Button>
+            </Link>
+            <Badge
+              variant="outline"
+              className="border-primary/50 text-primary text-lg px-4 py-2"
+            >
+              ESP32 + Sensors
+            </Badge>
+          </div>
         </div>
 
         {/* Main Grid */}
